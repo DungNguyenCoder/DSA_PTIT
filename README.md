@@ -8,7 +8,7 @@ Repository này chứa các bài giải chi tiết cho các bài tập về **Da
 
 ## 📂 Cấu trúc thư mục
 ```
-CodePTIT-DSA-Solutions/
+DSA_PTIT/
 ├── README.md
 ├── CTDL_001.cpp
 ├── CTDL_002.cpp
@@ -23,7 +23,7 @@ CodePTIT-DSA-Solutions/
 ## ⚡ Cách sử dụng
 1. Clone repo về máy:
    ```bash
-   git clone https://github.com/username/CodePTIT-DSA-Solutions.git
+   git clone https://github.com/DungNguyenCoder/DSA_PTIT.git
    ```
 2. Mở file `.cpp` tương ứng với bài cần tham khảo.
 3. Compile và chạy thử:
