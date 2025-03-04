@@ -13,12 +13,21 @@ inline void solution() {
     int n;
     cin >> n;
     vector<int> v;
+    unordered_map<int, int> mp;
     int tmp;
     for (int i = 0; i < n; i++) {
         cin >> tmp;
         v.push_back(tmp);
+        mp[tmp]++;
     }
+    int cnt = 0;
     sort(v.begin(), v.end());
+    for (int i = v.front(); i <= v.back(); i++) {
+        if(mp[i] == 0) {
+            ++cnt;
+        }
+    }
+    cout << cnt << endl;
 }
 
 int main() {
