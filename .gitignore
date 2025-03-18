@@ -1,8 +1,15 @@
 #tmp file
 1.cpp
 2.cpp
+3.cpp
 1.exe
 2.exe
+3.exe
+4.cpp
+
+#folder
+ThucHanh/
+KiemTra/
 
 #vscode
 .cph/
