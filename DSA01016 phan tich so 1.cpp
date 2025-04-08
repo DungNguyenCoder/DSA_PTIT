@@ -11,15 +11,20 @@ const int mod = 1e9+7;
 
 int n;
 vector<int> x;
-vector<vector<int>> v;
 
-int cnt = 0;
+void in() {
+    cout << "(";
+    for (int i = 0; i < x.size(); i++) {
+        cout << x[i];
+        if(i != x.size() - 1)
+            cout << " ";
+    }
+    cout << ") ";
+}
 
 void Try(int i) {
-    if(i == 0) {
-        ++cnt;
-        v.push_back(x);
-    }
+    if(i == 0)
+        in();
     else {
         int soLon = x.empty() ? n : x.back();
         for (int j = min(i, soLon); j >= 1; j--) {
@@ -31,20 +36,8 @@ void Try(int i) {
 }
 
 inline void solution() {
-    v.clear();
-    cnt = 0;
     cin >> n;
     Try(n);
-    cout << cnt << endl;
-    for (int i = 0; i < v.size(); i++) {
-        cout << "(";
-        for (int j = 0; j < v[i].size(); j++) {
-            cout << v[i][j];
-            if(j != v[i].size() - 1)
-                cout << " ";
-        }
-        cout << ") ";
-    }
     cout << endl;
 }
 

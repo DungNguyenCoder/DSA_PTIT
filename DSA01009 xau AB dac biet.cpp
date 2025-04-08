@@ -12,30 +12,37 @@ const int mod = 1e9+7;
 char x[100];
 int n, k;
 int cnt = 0;
+vector<string> v;
 
 void out() {
     ++cnt;
+    string s;
     for (int i = 0; i < n; i++) {
-        cout << x[i];
+        s.push_back(x[i]);
     }
-    cout << endl;
+    v.push_back(s);
 }
 
 void Try(int i) {
     for(int j = 0; j <= 1; j++) {
         x[i] = j + 'A';
         if(i == n-1) {
-            bool check = true;
+            int check = 0;
+            int cntA = 0;
             for (int I = 0; I <= n - k; I++) {
+                cntA = 0;
                 for (int J = I; J < I + k; J++) {
-                    if(x[I] != 'A') {
-                        check = false;
-                        break;
+                    if(x[J] == 'A') {
+                        ++cntA;
                     }
                 }
+                if(cntA == k) {
+                    check++;
+                }
             }
-            if(check)
+            if(check == 1) {
                 out();
+            }
         }
         else
             Try(i+1);
@@ -45,7 +52,10 @@ void Try(int i) {
 inline void solution() {
     cin >> n >> k;
     Try(0);
-    cout << cnt;
+    cout << cnt << endl;
+    for(string s : v) {
+        cout << s << endl;
+    }
 }
 
 int main() {
