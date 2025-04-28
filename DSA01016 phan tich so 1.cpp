@@ -26,7 +26,12 @@ void Try(int i) {
     if(i == 0)
         in();
     else {
-        int soLon = x.empty() ? n : x.back();
+        int soLon;
+        if (x.empty()) {
+            soLon = n;
+        } else {
+            soLon = x.back();
+        }
         for (int j = min(i, soLon); j >= 1; j--) {
             x.push_back(j);
             Try(i - j);
