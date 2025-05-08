@@ -11,55 +11,44 @@ const int mod = 1e9+7;
 
 vector<int> adj[mx + 5];
 bool visited[mx + 5];
-int parent[mx + 5];
-vector<int> ans;
 int n, m, s, t;
 
-void DFS(int u) {
+void BFS(int u) {
     visited[u] = true;
     for(int v : adj[u]) {
         if(!visited[v]) {
-            parent[v] = u;
-            DFS(v);
+            BFS(v);
         }
     }
 }
 
 void findPath(int s, int t) {
-    DFS(s);
-
+    BFS(s);
     if(!visited[t]) {
-        cout << -1 << endl;
-        return;
+        cout << "NO\n";
     }
-
-    while(t != s) {
-        ans.push_back(t);
-        t = parent[t];
+    else {
+        cout << "YES\n";
     }
-
-    ans.push_back(s);
-    reverse(ans.begin(), ans.end());
-
-    for(int v : ans) {
-        cout << v << " ";
-    }
-    cout << endl;
 }
 
 inline void solution() {
-    ans.clear();
     for (int i = 0; i < mx + 5; i++)
         adj[i].clear();
-    cin >> n >> m >> s >> t;
+    cin >> n >> m;
     for (int i = 0; i < m; i++) {
         int x, y;
         cin >> x >> y;
         adj[x].push_back(y);
+        adj[y].push_back(x);
     }
-    memset(visited, 0, sizeof(visited));
-    memset(parent, 0, sizeof(parent));
-    findPath(s, t);
+    int q;
+    cin >> q;
+    while(q--) {
+        memset(visited, 0, sizeof(visited));
+        cin >> s >> t;
+        findPath(s, t);
+    }
 }
 
 int main() {
