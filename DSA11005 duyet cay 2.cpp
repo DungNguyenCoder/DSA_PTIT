@@ -43,11 +43,11 @@ node *build(vector<int> &inOrder, vector<int> &levelOrder) {
     return root;
 }
 
-void inOrder(node *root) {
+void postOrder(node *root) {
     if(!root)
         return;
-    inOrder(root->l);
-    inOrder(root->r);
+    postOrder(root->l);
+    postOrder(root->r);
     cout << root->val << ' ';
 }
 
@@ -68,7 +68,7 @@ int main() {
         for (int i = 0; i < n; i++)
             cin >> levelOrder[i];
         node *root = build(inOrder, levelOrder);
-        inOrder(root);
+        postOrder(root);
         cout << '\n';
     }
 }

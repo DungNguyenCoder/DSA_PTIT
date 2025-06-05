@@ -30,11 +30,11 @@ node *buildBST(const vector<int> &a) {
     return root;
 }
 
-void inOrder(node *root) {
+void postOrder(node *root) {
     if(!root)
         return;
-    inOrder(root->l);
-    inOrder(root->r);
+    postOrder(root->l);
+    postOrder(root->r);
     cout << root->val << " ";
 }
 
@@ -53,7 +53,7 @@ int main() {
             cin >> a[i];
         }
         node *root = buildBST(a);
-        inOrder(root);
+        postOrder(root);
         cout << '\n';
     }
 }
